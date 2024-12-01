@@ -17,6 +17,8 @@ zeta = str2num(zeta_string); % The ZETA values taken from the user
 sim_time =  0.0:0.1:20; % For howlong the simulation will run
 step_input = ones(size(sim_time));
 
+num_cases = length(zeta)*length(Wn);
+sys_info(num_cases) = struct('RiseTime',[],'SettlingTime',[],'TransientTime',[],'Overshoot',[],'Peak',[],'PeakTime',[]);
 
 %%Section 2 
 % The SIMULATION %
@@ -49,9 +51,17 @@ for i = 1:length(Wn)
 
         legend('Step input', 'Sys Response');
         
-       
-         sys_info(simNum) = stepinfo(sysTF);
-       
+       %% Taking All important values and storing it in the sys_info Var
+         step_info = stepinfo(sysTF);
+
+            sys_info(simNum).RiseTime = step_info.RiseTime;
+            sys_info(simNum).SettlingTime = step_info.SettlingTime;
+            sys_info(simNum).TransientTime = step_info.SettlingTime; % Assuming TransientTime = SettlingTime
+            sys_info(simNum).Overshoot = step_info.Overshoot;
+            sys_info(simNum).Peak = step_info.Peak;
+            sys_info(simNum).PeakTime = step_info.PeakTime;
+     
+  %% Iterating vars
         simNum = simNum +1;
         pos = pos + 1; %To choose the right subplot to draw on
     end
