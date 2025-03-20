@@ -1,0 +1,7 @@
+This project contains a Simulink model of a counter that increments based on a pulse generator. It only counts on the rising edge of the pulse and includes a reset function.
+How It Works
+
+    The counter increases by 1 every time a rising edge is detected in the input pulse.
+    If the reset signal is triggered, the counter goes back to zero.
+    The model uses logic gates and memory blocks to ensure it only reacts to rising edges.
+    Switching to a fixed-step solver resolves timing issues that occur when the pulse width is too small.
