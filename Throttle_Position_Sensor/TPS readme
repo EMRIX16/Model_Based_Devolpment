@@ -1,0 +1,25 @@
+This project simulates a Throttle Position Sensor (TPS) and includes a coherence failure scenario. The system relies on two sensors:
+
+    One sensor outputs 0.5V to 4.5V.
+
+    The other sensor works in reverse, from 4.5V to 0.5V.
+
+    Their combined output should always add up to 5V to ensure proper functionality.
+
+What's Included
+
+    A Simulink model that replicates the TPS operation.
+
+    Software-in-the-loop (SIL) testing to check performance.
+
+    Automatic code generation to prepare for real-time use.
+
+How to Use
+
+    Run the "TPS_Modes.m" file first—it defines an enumeration used in the model.
+
+    Open the Simulink model.
+
+    Start the simulation to see how the TPS behaves.
+
+    Use SIL testing to validate the system.
